@@ -1,0 +1,66 @@
+<div class="content-panel">
+  <div class="row">
+    <div class="col-lg-12">
+    <div class="ibox-content m-b-sm border-bottom">
+        <div class="row">
+            <div class="col-sm-10">
+                <div class="form-inline">
+                    <div class="form-group">
+                        <label class="control-label" for="product_name">搜索:</label>
+                        <div class="input-group top-search-margin">
+                            <input (keyup)="keyupSearch($event)" placeholder="名称" type="text"  [(ngModel)]="model.searchText" class="form-control">
+                            <span class="input-group-addon" (click)="filterList()"> <i class="fa fa-search"></i>
+                            </span>
+                        </div>
+                        <a ng-click="filterDownToggle()" *ngIf="false">
+                            更多筛选 <i ng-class="{'active': (settings.toggle)}" class="fa fa-angle-down"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div ng-click="clearBoth()" style="text-align:right;" *ngIf="false" class="col-sm-2 colp">
+                <p><i class="fa fa-times"></i> 清空搜索条件</p>
+            </div>
+        </div>
+    </div>
+        <div class="ibox float-e-margins">
+            <div class="ibox-title">
+                <button class="btn btn-danger" (click)="EditUser()">添加角色</button>
+            </div>
+            <div class="ibox-content">
+                    <table class="table">
+                            <thead>
+                            <tr>
+                                <th>名称</th>
+                                <th>昵称</th>
+                                <th>操作</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                                <tr class="slide-top ani-item" *ngFor="let data of DataList">
+                                    <td>{{data.id}}</td>
+                                    <td>{{data.account}}</td>
+                                    <td>{{data.mobilePhone}}</td>
+                                    <td>{{data.nickName}}</td>
+                                    <td>
+                                        <i ng-click="edit(data)" class="fa fa-lg fa-pencil"></i>
+                                        <i ng-click="delete(data)" class="fa fa-lg fa-trash-o"></i>
+                                    </td>
+                                </tr> 
+                                <tr class="slide-top ani-item" >
+                                    <td style="text-align:center;" colspan="7">
+                                        暂无数据
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                </div>
+                <div class="row" style="text-align:right;margin-right:0;">
+                    <ngb-pagination [collectionSize]="120" [(page)]="page" [maxSize]="5" [rotate]="true" [ellipses]="false" [boundaryLinks]="true"></ngb-pagination>
+                </div>
+                
+            </div>
+
+        </div>
+    </div>
+</div>

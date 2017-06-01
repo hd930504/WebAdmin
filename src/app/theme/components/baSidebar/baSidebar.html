@@ -1,0 +1,17 @@
+<aside class="al-sidebar" sidebarResize>
+  <div class="al-headbar" style="">
+    <img class="head-img" src="assets/img/app/profile/Andrey.png" alt="" />
+    <div class="head-text">瑞懿科技</div>
+    <i  class="ion-navicon-round" (click)="MenuCollapsedClick()"></i>
+  </div>
+  <ul class="collapsed-top-menu">
+    <li class="al-sidebar-list-item selected" title="瑞懿科技">
+      <a class="al-sidebar-list-link">
+      <i  class="ion-navicon-round" (click)="MenuUnCollapsedClick()"></i><span>瑞懿科技</span>
+    </a>
+    </li>
+    </ul>
+  <ba-menu [menuHeight]="menuHeight"
+           [sidebarCollapsed]="isMenuCollapsed"
+           (expandMenu)="menuExpand()"></ba-menu>
+</aside>

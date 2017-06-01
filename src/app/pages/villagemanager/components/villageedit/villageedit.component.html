@@ -1,0 +1,52 @@
+<div class="modal-content">
+  <div class="modal-header">
+    <h4 class="modal-title"><span (click)="villageInfo()">{{modalHeader}}</span> | <span (click)="villageImg()">图片编辑</span></h4>
+    <button class="close" aria-label="Close" (click)="CancelClick()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body" *ngIf='!Img'>
+
+   <form  class="form-horizontal step slide-right" role="form">
+    <input class="form-control" type="hidden" ng-model="model.id" type="text" style="display: none;"/>
+    <div class="form-group row">
+      <label class="col-sm-3 control-label" for="txtLoginName">小区名</label>
+      <div class="col-sm-6">
+        <input class="form-control" name="txtvillagename" [(ngModel)]="model.name" type="text"  required/>
+      </div>
+    </div>
+    <div class="form-group row">
+      <label class="col-sm-3 control-label" for="txtrealname">地区名</label>
+      <div class="col-sm-6">
+        <input class="form-control" name="txtdistrictName" [(ngModel)]="model.districtName" type="text" required/>
+      </div>
+    </div>
+    <div class="form-group row">
+      <label class="col-sm-3 control-label" for="txtrealname">地址</label>
+       <div class="col-sm-6">
+        <input class="form-control" name="txtaddress" [(ngModel)]="model.address" type="text" required/>
+      </div>
+    </div>
+   </form>
+  </div>
+  <div class="modal-body" *ngIf='Img'>
+    <div class="img-type">
+      <span>实景图</span>
+      <span>效果图</span>
+      <span>户型图</span>
+    </div>
+     <div class="upload-img">
+      <div class="village-img">
+        <img src="" width="200" height="200">
+      </div>
+      <div class="upload-input">
+        <input type="file" name="file" ng2FileSelect [uploader]='uploader' (change)="upload()" multiple>
+      </div>
+    </div>
+  </div>
+   
+  <div class="modal-footer">
+    <button class="btn btn-danger" (click)="OKClick()">保存</button>
+    <button class="btn btn-default" (click)="CancelClick()">取消</button>
+  </div>
+</div>

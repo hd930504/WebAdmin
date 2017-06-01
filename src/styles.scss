@@ -1,0 +1,25 @@
+/* You can add global styles to this file, and also import other style files */
+
+ul,p,table,td,th,input,button{
+	margin:0;
+	padding:0;
+}
+li{
+	list-style:none;
+}
+input,button{
+	outline:none;
+}
+
+.fl{
+	float:left;
+}
+.fr{
+	float:right;
+}
+.cl{
+	clear:both;
+}
+.ofhidden{
+	overflow:hidden;
+}

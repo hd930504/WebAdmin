@@ -1,0 +1,200 @@
+<div class="wrap">
+  <h2 class="net-title">每日网签统计</h2>
+  <div class="table-zone">
+    <ul class="select-list">
+      <li class="form-li">
+        <span class="fl">时间范围：</span>
+        <div class="fl">
+          <form class="form-inline">
+            <div class="form-group">
+              <div class="input-group">
+                <input class="form-control" placeholder="yyyy-mm-dd"
+                       name="dp2" [(ngModel)]="model" ngbDatepicker #start="ngbDatepicker">
+                <div class="input-group-addon" (click)="start.toggle()" >
+                  <img src="assets/img/calendar-icon.svg" style="width: 1.2rem; height: 1rem; cursor: pointer;"/>
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+
+          <div class="f2">
+
+          <form class="form-inline">
+            <div class="form-group">
+              <div class="input-group">
+                <input class="form-control" placeholder="yyyy-mm-dd"
+                       name="dp" [(ngModel)]="model" ngbDatepicker #end="ngbDatepicker">
+                <div class="input-group-addon" (click)="end.toggle()" >
+                  <img src="assets/img/calendar-icon.svg" style="width: 1.2rem; height: 1rem; cursor: pointer;"/>
+                </div>
+              </div>
+            </div>
+          </form>
+
+        </div> 
+
+      </li>
+      <li class="btn-li">
+        <span class="fl">区域选择：</span>
+        <div [(ngModel)]="model" ngbRadioGroup name="radioBasic">
+          <label class="btn btn-primary">
+            <input type="radio" [value]="1"> 全市
+          </label>
+          <label class="btn btn-primary">
+            <input type="radio" value="middle"> 市区
+          </label>
+          <!-- <label class="btn btn-primary">
+            <input type="radio" [value]="false"> 10年以上
+          </label> -->
+        </div>
+      </li>
+      <li class="btn-li">
+        <span class="fl">房龄选择：</span>
+        <div [(ngModel)]="model" ngbRadioGroup name="radioBasic">
+          <label class="btn btn-primary">
+            <input type="radio" [value]="1"> 5年
+          </label>
+          <label class="btn btn-primary">
+            <input type="radio" value="middle"> 10年
+          </label>
+          <label class="btn btn-primary">
+            <input type="radio" [value]="false"> 10年以上
+          </label>
+        </div>
+      </li>
+    </ul>
+
+    
+
+    <table class="show-table">
+      <tr>
+        <th> </th>
+        <th colspan="4">住宅类</th>
+        <th colspan="4">非住宅类</th>
+      </tr>
+      <tr>
+        <th>时间</th>
+        <th>网签套数</th>
+        <th>网签面积</th>
+        <th>网签金额</th>
+        <th>网签价格</th>
+        <th>网签套数</th>
+        <th>网签面积</th>
+        <th>网签金额</th>
+        <th>网签价格</th>
+      </tr>
+      <tr>
+        <td class="width-86">5月1日</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td class="width-86">5月2日</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td class="width-86">5月3日</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td class="width-86">5月4日</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td class="width-86">5月5日</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td class="width-86">5月6日</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td class="width-86">5月7日</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td class="width-86">5月8日</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td class="width-86">5月9日</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td class="width-86">合计</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+    </table>
+  </div>
+</div>
+

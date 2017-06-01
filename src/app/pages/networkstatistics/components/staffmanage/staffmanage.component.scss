@@ -1,0 +1,26 @@
+@import "../everyday/everyday.component.scss";
+.staff-manage .ofhidden{
+	width:74%;
+	padding:10px 0;
+}
+.ofhidden li{
+	width:33%;
+}
+.ofhidden span{
+	display:block;
+	line-height:38px;
+	background:#dce6f2;
+	margin-right:14px;
+	font-size:16px;
+	font-weight:bold;
+	text-align:center;
+	cursor:pointer;
+}
+.show-table .width-180{
+	width:180px;
+}
+.show-table .width-100{
+	width:100px;
+}
+
+

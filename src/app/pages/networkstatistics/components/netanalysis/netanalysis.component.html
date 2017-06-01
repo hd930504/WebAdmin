@@ -1,0 +1,502 @@
+<div class="wrap">
+	<div class="show-zone">
+		<h2 class="title">
+			<div *ngIf="bSTitle">	ceshineirognceshineri g	</div>
+			一、整体市场概览（2010-2017年）
+			<span class="time-mark">（截止时间2017年5月9日10点）</span>
+		</h2>
+		<ul class="menu fl">
+			<li  class="select" (click)="onItemClick(0)">规模走势</li>
+			<li (click)="onItemClick(1)">价格走势</li>
+			<li (click)="onItemClick(2)">金额走势</li>
+			<li (click)="onItemClick(3)">整体走势</li>
+		</ul>
+		<div class="content fl">
+			<div class="con"      *ngIf="selItem == 0">
+				<ul class="select-list">
+			      <li class="form-li">
+		          <span class="fl">时间范围：</span>
+		          <div class="fl">
+			         <form class="form-inline">
+			           <div class="form-group">
+			             <div class="input-group">
+			               <input class="form-control" placeholder="yyyy-mm-dd"
+			                       name="dp" [(ngModel)]="model" ngbDatepicker #scaleStart="ngbDatepicker">
+			               <div class="input-group-addon" (click)="scaleStart.toggle()" >
+			                 <img src="assets/img/calendar-icon.svg" style="width: 1.2rem; height: 1rem; cursor: pointer;"/>
+			                </div>
+			              </div>
+			            </div>
+			          </form>
+			        </div>
+
+			        <div class="fl">
+			         <form class="form-inline">
+			           <div class="form-group">
+			             <div class="input-group">
+			               <input class="form-control" placeholder="yyyy-mm-dd"
+			                       name="dp" [(ngModel)]="model" ngbDatepicker #scaleEnd="ngbDatepicker">
+			               <div class="input-group-addon" (click)="scaleEnd.toggle()" >
+			                 <img src="assets/img/calendar-icon.svg" style="width: 1.2rem; height: 1rem; cursor: pointer;"/>
+			                </div>
+			              </div>
+			            </div>
+			          </form>
+			        </div>
+
+			      </li>
+			      <li class="form-li">
+			      	<span class="fl">分析字段：</span>
+		        	<form class="fl">
+					  <input type="checkbox"  id="number" />
+					  <label for="number">网签套数</label>
+					  <input type="checkbox"  id="square" />
+					  <label for="square">网签面积</label>
+					</form>
+
+			      </li>
+			    </ul>
+			    <chart [options]="scale"></chart>
+			</div>
+			<div class="con" *ngIf="selItem ==1">
+				<ul class="select-list">
+			      <li class="form-li">
+			          <span class="fl">时间范围：</span>
+			          <div class="fl">
+			           <form class="form-inline">
+			           <div class="form-group">
+			             <div class="input-group">
+			               <input class="form-control" placeholder="yyyy-mm-dd"
+			                       name="dp" [(ngModel)]="model" ngbDatepicker #priceStart="ngbDatepicker">
+			               <div class="input-group-addon" (click)="priceStart.toggle()" >
+			                 <img src="assets/img/calendar-icon.svg" style="width: 1.2rem; height: 1rem; cursor: pointer;"/>
+			                </div>
+			              </div>
+			            </div>
+			          </form>
+			        </div>
+
+			        <div class="fl">
+			         <form class="form-inline">
+			           <div class="form-group">
+			             <div class="input-group">
+			               <input class="form-control" placeholder="yyyy-mm-dd"
+			                       name="dp" [(ngModel)]="model" ngbDatepicker #priceEnd="ngbDatepicker">
+			               <div class="input-group-addon" (click)="priceEnd.toggle()" >
+			                 <img src="assets/img/calendar-icon.svg" style="width: 1.2rem; height: 1rem; cursor: pointer;"/>
+			                </div>
+			              </div>
+			            </div>
+			          </form>
+			        </div>
+
+			      </li>
+			      <li class="form-li">
+			      	<span class="fl">分析字段：</span>
+		        	<form class="fl">
+					  <!-- <input type="checkbox"  id="number" />
+					  <label for="number">网签套数</label>
+					  <input type="checkbox"  id="square" />
+					  <label for="square">网签面积</label> -->
+					</form>
+
+			      </li>
+			    </ul>
+			    <chart [options]="price"></chart>
+			</div>
+			<div class="con" [style.display]="selItem==2? 'block' : 'none'">
+				<ul class="select-list">
+			      <li class="form-li">
+			          <span class="fl">时间范围：</span>
+			          <div class="fl">
+			           <form class="form-inline">
+			           <div class="form-group">
+			             <div class="input-group">
+			               <input class="form-control" placeholder="yyyy-mm-dd"
+			                       name="dp" [(ngModel)]="model" ngbDatepicker #amountStart="ngbDatepicker">
+			               <div class="input-group-addon" (click)="amountStart.toggle()" >
+			                 <img src="assets/img/calendar-icon.svg" style="width: 1.2rem; height: 1rem; cursor: pointer;"/>
+			                </div>
+			              </div>
+			            </div>
+			          </form>
+			        </div>
+
+			        <div class="fl">
+			         <form class="form-inline">
+			           <div class="form-group">
+			             <div class="input-group">
+			               <input class="form-control" placeholder="yyyy-mm-dd"
+			                       name="dp" [(ngModel)]="model" ngbDatepicker #amountEnd="ngbDatepicker">
+			               <div class="input-group-addon" (click)="amountEnd.toggle()" >
+			                 <img src="assets/img/calendar-icon.svg" style="width: 1.2rem; height: 1rem; cursor: pointer;"/>
+			                </div>
+			              </div>
+			            </div>
+			          </form>
+			        </div>
+
+			      </li>
+			      <li class="form-li">
+			      	<span class="fl">分析字段：</span>
+		        	<form class="fl">
+					  <!-- <input type="checkbox"  id="number" />
+					  <label for="number">网签套数</label>
+					  <input type="checkbox"  id="square" />
+					  <label for="square">网签面积</label> -->
+					</form>
+
+			      </li>
+			    </ul>
+			    <chart [options]="amount"></chart>
+			</div>
+			<div class="con" [style.display]="selItem==3? 'block' : 'none'">
+				<ul class="select-list">
+			      <li class="form-li">
+			          <span class="fl">时间范围：</span>
+			          <div class="fl">
+			           <form class="form-inline">
+			           <div class="form-group">
+			             <div class="input-group">
+			               <input class="form-control" placeholder="yyyy-mm-dd"
+			                       name="dp" [(ngModel)]="model" ngbDatepicker #wholeStart="ngbDatepicker">
+			               <div class="input-group-addon" (click)="wholeStart.toggle()" >
+			                 <img src="assets/img/calendar-icon.svg" style="width: 1.2rem; height: 1rem; cursor: pointer;"/>
+			                </div>
+			              </div>
+			            </div>
+			          </form>
+			        </div>
+
+			        <div class="fl">
+			         <form class="form-inline">
+			           <div class="form-group">
+			             <div class="input-group">
+			               <input class="form-control" placeholder="yyyy-mm-dd"
+			                       name="dp" [(ngModel)]="model" ngbDatepicker #wholeEnd="ngbDatepicker">
+			               <div class="input-group-addon" (click)="wholeEnd.toggle()" >
+			                 <img src="assets/img/calendar-icon.svg" style="width: 1.2rem; height: 1rem; cursor: pointer;"/>
+			                </div>
+			              </div>
+			            </div>
+			          </form>
+			        </div>
+			      </li>
+			      <li class="form-li">
+			      	<span class="fl">分析字段：</span>
+		        	<form class="fl">
+					  <!-- <input type="checkbox"  id="number" />
+					  <label for="number">网签套数</label>
+					  <input type="checkbox"  id="square" />
+					  <label for="square">网签面积</label> -->
+					</form>
+
+			      </li>
+			    </ul>
+			    <chart [options]="whole"></chart>
+			</div>
+		</div>
+		<div class="cl"></div>
+	</div>
+
+	<div class="show-zone">
+		<h2 class="title">
+			二、网签结构分析
+		</h2>
+		<ul class="menu fl">
+			<li class="select" (click)="onSelectClick(0)">区域结构</li>
+			<li (click)="onSelectClick(1)">房龄结构</li>
+			<li (click)="onSelectClick(2)">面积结构</li>
+			<li (click)="onSelectClick(3)">单价结构</li>
+			<li (click)="onSelectClick(4)">套总价结构</li>
+			<li (click)="onSelectClick(5)">自定义交叉分析</li>
+		</ul>
+		<div class="content fl">
+			<div class="con" [style.display]="selectItem==0? 'block' : 'none'">
+				<ul class="select-list">
+			      <li class="form-li">
+			          <span class="fl">时间范围：</span>
+			          <div class="fl">
+			          	<form class="form-inline">
+				            <div class="form-group">
+				              <div class="input-group">
+				                <input class="form-control" placeholder="yyyy-mm-dd"
+				                       name="dp" [(ngModel)]="model" ngbDatepicker #areaStart="ngbDatepicker">
+				                <div class="input-group-addon" (click)="areaStart.toggle()" >
+				                  <img src="assets/img/calendar-icon.svg" style="width: 1.2rem; height: 1rem; cursor: pointer;"/>
+				                </div>
+				              </div>
+				            </div>
+				          </form>
+			          </div>
+
+			          <div class="fl">
+			          	<form class="form-inline">
+				            <div class="form-group">
+				              <div class="input-group">
+				                <input class="form-control" placeholder="yyyy-mm-dd"
+				                       name="dp" [(ngModel)]="model" ngbDatepicker #areaEnd="ngbDatepicker">
+				                <div class="input-group-addon" (click)="areaEnd.toggle()" >
+				                  <img src="assets/img/calendar-icon.svg" style="width: 1.2rem; height: 1rem; cursor: pointer;"/>
+				                </div>
+				              </div>
+				            </div>
+				          </form>
+			          </div>
+
+			      </li>
+			      <li class="form-li">
+			      	<span class="fl">分析字段：</span>
+		        	<form class="fl">
+					  <input type="checkbox"  id="number" />
+					  <label for="number">网签套数</label>
+					  <input type="checkbox"  id="square" />
+					  <label for="square">网签面积</label>
+					  <input type="checkbox"  id="amount" />
+					  <label for="amount">网签金额</label>
+					</form>
+
+			      </li>
+			    </ul>
+			    <chart [options]="area"></chart>
+			</div>
+			<div class="con" [style.display]="selectItem==1? 'block' : 'none'">
+				<ul class="select-list">
+			      <li class="form-li">
+			          <span class="fl">时间范围：</span>
+			          <div class="fl">
+			          	<form class="form-inline">
+				            <div class="form-group">
+				              <div class="input-group">
+				                <input class="form-control" placeholder="yyyy-mm-dd"
+				                       name="dp" [(ngModel)]="model" ngbDatepicker #roomageStart="ngbDatepicker">
+				                <div class="input-group-addon" (click)="roomageStart.toggle()" >
+				                  <img src="assets/img/calendar-icon.svg" style="width: 1.2rem; height: 1rem; cursor: pointer;"/>
+				                </div>
+				              </div>
+				            </div>
+				          </form>
+			          </div>
+
+			          <div class="fl">
+			          	<form class="form-inline">
+				            <div class="form-group">
+				              <div class="input-group">
+				                <input class="form-control" placeholder="yyyy-mm-dd"
+				                       name="dp" [(ngModel)]="model" ngbDatepicker #roomageEnd="ngbDatepicker">
+				                <div class="input-group-addon" (click)="roomageEnd.toggle()" >
+				                  <img src="assets/img/calendar-icon.svg" style="width: 1.2rem; height: 1rem; cursor: pointer;"/>
+				                </div>
+				              </div>
+				            </div>
+				          </form>
+			          </div>
+			      </li>
+			      <li class="form-li">
+			      	<span class="fl">分析字段：</span>
+		        	<form class="fl">
+					  <input type="checkbox"  id="number" />
+					  <label for="number">网签套数</label>
+					  <input type="checkbox"  id="square" />
+					  <label for="square">网签面积</label>
+					  <input type="checkbox"  id="amount" />
+					  <label for="amount">网签金额</label>
+					</form>
+
+			      </li>
+			    </ul>
+			    <chart [options]="roomage"></chart>
+			</div>
+			<div class="con" [style.display]="selectItem==2? 'block' : 'none'">
+				<ul class="select-list">
+			      <li class="form-li">
+			          <span class="fl">时间范围：</span>
+			          <div class="fl">
+			          	<form class="form-inline">
+				            <div class="form-group">
+				              <div class="input-group">
+				                <input class="form-control" placeholder="yyyy-mm-dd"
+				                       name="dp" [(ngModel)]="model" ngbDatepicker #acreageStart="ngbDatepicker">
+				                <div class="input-group-addon" (click)="acreageStart.toggle()" >
+				                  <img src="assets/img/calendar-icon.svg" style="width: 1.2rem; height: 1rem; cursor: pointer;"/>
+				                </div>
+				              </div>
+				            </div>
+				          </form>
+			          </div>
+
+			          <div class="fl">
+			          	<form class="form-inline">
+				            <div class="form-group">
+				              <div class="input-group">
+				                <input class="form-control" placeholder="yyyy-mm-dd"
+				                       name="dp" [(ngModel)]="model" ngbDatepicker #acreageEnd="ngbDatepicker">
+				                <div class="input-group-addon" (click)="acreageEnd.toggle()" >
+				                  <img src="assets/img/calendar-icon.svg" style="width: 1.2rem; height: 1rem; cursor: pointer;"/>
+				                </div>
+				              </div>
+				            </div>
+				          </form>
+			          </div>
+			      </li>
+			      <li class="form-li">
+			      	<span class="fl">分析字段：</span>
+		        	<form class="fl">
+					  <input type="checkbox"  id="number" />
+					  <label for="number">网签套数</label>
+					  <input type="checkbox"  id="square" />
+					  <label for="square">网签面积</label>
+					  <input type="checkbox"  id="amount" />
+					  <label for="amount">网签金额</label>
+					</form>
+
+			      </li>
+			    </ul>
+			    <chart [options]="acreage"></chart>
+			</div>
+			<div class="con" [style.display]="selectItem==3? 'block' : 'none'">
+				<ul class="select-list">
+			      <li class="form-li">
+			          <span class="fl">时间范围：</span>
+			          <div class="fl">
+			          	<form class="form-inline">
+				            <div class="form-group">
+				              <div class="input-group">
+				                <input class="form-control" placeholder="yyyy-mm-dd"
+				                       name="dp" [(ngModel)]="model" ngbDatepicker #unitPriceStart="ngbDatepicker">
+				                <div class="input-group-addon" (click)="unitPriceStart.toggle()" >
+				                  <img src="assets/img/calendar-icon.svg" style="width: 1.2rem; height: 1rem; cursor: pointer;"/>
+				                </div>
+				              </div>
+				            </div>
+				          </form>
+			          </div>
+
+			          <div class="fl">
+			          	<form class="form-inline">
+				            <div class="form-group">
+				              <div class="input-group">
+				                <input class="form-control" placeholder="yyyy-mm-dd"
+				                       name="dp" [(ngModel)]="model" ngbDatepicker #unitPriceEnd="ngbDatepicker">
+				                <div class="input-group-addon" (click)="unitPriceEnd.toggle()" >
+				                  <img src="assets/img/calendar-icon.svg" style="width: 1.2rem; height: 1rem; cursor: pointer;"/>
+				                </div>
+				              </div>
+				            </div>
+				          </form>
+			          </div>
+			      </li>
+			      <li class="form-li">
+			      	<span class="fl">分析字段：</span>
+		        	<form class="fl">
+					  <input type="checkbox"  id="number" />
+					  <label for="number">网签套数</label>
+					  <input type="checkbox"  id="square" />
+					  <label for="square">网签面积</label>
+					  <input type="checkbox"  id="amount" />
+					  <label for="amount">网签金额</label>
+					</form>
+
+			      </li>
+			    </ul>
+			    <chart [options]="unitPrice"></chart>
+			</div>
+			<div class="con" [style.display]="selectItem==4? 'block' : 'none'">
+				<ul class="select-list">
+			      <li class="form-li">
+			          <span class="fl">时间范围：</span>
+			          <div class="fl">
+			          	<form class="form-inline">
+				            <div class="form-group">
+				              <div class="input-group">
+				                <input class="form-control" placeholder="yyyy-mm-dd"
+				                       name="dp" [(ngModel)]="model" ngbDatepicker #totalStart="ngbDatepicker">
+				                <div class="input-group-addon" (click)="totalStart.toggle()" >
+				                  <img src="assets/img/calendar-icon.svg" style="width: 1.2rem; height: 1rem; cursor: pointer;"/>
+				                </div>
+				              </div>
+				            </div>
+				          </form>
+			          </div>
+
+			          <div class="fl">
+			          	<form class="form-inline">
+				            <div class="form-group">
+				              <div class="input-group">
+				                <input class="form-control" placeholder="yyyy-mm-dd"
+				                       name="dp" [(ngModel)]="model" ngbDatepicker #totalEnd="ngbDatepicker">
+				                <div class="input-group-addon" (click)="totalEnd.toggle()" >
+				                  <img src="assets/img/calendar-icon.svg" style="width: 1.2rem; height: 1rem; cursor: pointer;"/>
+				                </div>
+				              </div>
+				            </div>
+				          </form>
+			          </div>
+			      </li>
+			      <li class="form-li">
+			      	<span class="fl">分析字段：</span>
+		        	<form class="fl">
+					  <input type="checkbox"  id="number" />
+					  <label for="number">网签套数</label>
+					  <input type="checkbox"  id="square" />
+					  <label for="square">网签面积</label>
+					  <input type="checkbox"  id="amount" />
+					  <label for="amount">网签金额</label>
+					</form>
+
+			      </li>
+			    </ul>
+			    <chart [options]="total"></chart>
+			</div>
+			<div class="con" [style.display]="selectItem==5? 'block' : 'none'">
+				<ul class="select-list">
+			      <li class="form-li">
+			          <span class="fl">时间范围：</span>
+			          <div class="fl">
+			          	<form class="form-inline">
+				            <div class="form-group">
+				              <div class="input-group">
+				                <input class="form-control" placeholder="yyyy-mm-dd"
+				                       name="dp" [(ngModel)]="model" ngbDatepicker #customizeStart="ngbDatepicker">
+				                <div class="input-group-addon" (click)="customizeStart.toggle()" >
+				                  <img src="assets/img/calendar-icon.svg" style="width: 1.2rem; height: 1rem; cursor: pointer;"/>
+				                </div>
+				              </div>
+				            </div>
+				          </form>
+			          </div>
+
+			          <div class="fl">
+			          	<form class="form-inline">
+				            <div class="form-group">
+				              <div class="input-group">
+				                <input class="form-control" placeholder="yyyy-mm-dd"
+				                       name="dp" [(ngModel)]="model" ngbDatepicker #customizeEnd="ngbDatepicker">
+				                <div class="input-group-addon" (click)="customizeEnd.toggle()" >
+				                  <img src="assets/img/calendar-icon.svg" style="width: 1.2rem; height: 1rem; cursor: pointer;"/>
+				                </div>
+				              </div>
+				            </div>
+				          </form>
+			          </div>
+			      </li>
+			      <li class="form-li">
+			      	<span class="fl">分析字段：</span>
+		        	<form class="fl">
+					  <!-- <input type="checkbox"  id="number" />
+					  <label for="number">网签套数</label>
+					  <input type="checkbox"  id="square" />
+					  <label for="square">网签面积</label> -->
+					</form>
+
+			      </li>
+			    </ul>
+			    <chart [options]="customize"></chart>
+			</div>
+		</div>
+		<div class="cl"></div>
+	</div>
+	
+</div>
+
+

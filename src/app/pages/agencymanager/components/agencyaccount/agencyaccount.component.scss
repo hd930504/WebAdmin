@@ -1,0 +1,14 @@
+.row{
+	.col-sm-3{
+		padding: 0 20px;
+		height: 140px;
+		margin-bottom: 24px;
+		box-sizing:border-box;
+		.account-card{
+			background: #fff;
+			height: 140px;
+			border-radius: 7px;
+			box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.15);
+		}
+	}
+}
